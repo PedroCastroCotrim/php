@@ -11,44 +11,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style-table.css">
+
     <title>Marcas</title>
 </head>
 <body>
+    <p class="page-title">MARCAS</p>
 
-    <h1 class="title">Marcas</h1>
     <main>
         <table>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Deletar</th>
-                <th>Editar</th>
+                <th><p class="title">ID</p></th>
+                <th><p class="title">NOME</p></th>
+                <th><p class="title">DELETAR</p></th>
+                <th><p class="title">EDITAR</p></th>
             </tr>
 
             <?php foreach ($marcas as $marca) { ?>
                     
             <tr>
-                <td><?= $marca['id_marca'] ?></td>
-                <td><?= $marca['nome'] ?></td>
+                <td><p class="sub-title"><?= $marca['id_marca'] ?></p></td>
+                <td><p class="sub-title"><?= $marca['nome'] ?></p></td>
 
                 <td>
                     <form method="post" action="cruds/delete.php">
                         <input type="hidden" name="id_marca" value="<?= $marca['id_marca']; ?>">
-                        <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');">Deletar</button>
+                        <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
                     </form>
                 </td>
 
                 <td>
-                    <a href="edit-marca.php?id=<?= $marca['id_marca'] ?>">Editar</a>
+                    <a href="edit-marca.php?id=<?= $marca['id_marca'] ?>"><p class="sub-title">Editar</p></a>
                 </td>
-
             </tr>
         <?php } ?>
-
         </table>
     </main>
-
-    <br><br>
-    <a href="../home.php">Home</a>
+</div>
 </body>
 </html>

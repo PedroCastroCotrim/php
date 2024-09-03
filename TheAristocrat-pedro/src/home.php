@@ -1,6 +1,7 @@
 <?php
-    include_once '../redirect.php';
-    redirect();
+    require_once '../conexao.php';
+    require_once '../navbar-session.php';
+    navbar_session();
 ?>
 
 <!DOCTYPE html>
@@ -33,5 +34,9 @@
     <a href="veiculos/cadastro-veiculo.php">Voltar</a> (Cadastro veiculo)<br>
     <a href="veiculos/lista-veiculo.php">Voltar</a> (Lista veiculo)<br>
     <br><br>
+
+    <?php
+        echo $_SESSION['fornecedor']->nome;
+    ?>
 </body>
 </html>

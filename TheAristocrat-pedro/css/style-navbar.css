@@ -1,0 +1,144 @@
+@font-face{
+    font-family: 'TT Wellingtons Trial Thin';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Thin.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial ExtraLight';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ ExtraLight.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Light';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Light.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Regular';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Regular.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{ 
+    font-family: 'TT Wellingtons Trial Medium';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Medium.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial DemiBold';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ DemiBold.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Bold';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Bold.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial ExtraBold';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ ExtraBold.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Black';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Black.otf) format('opentype');
+    font-style: normal;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.title{
+    font-family: 'TT Wellingtons Trial Light';
+    font-size: 20px;
+}
+
+.sub-title{
+    font-family: 'TT Wellingtons Trial Light';
+    font-size: 16px;
+}
+
+.text-body{
+    font-family: 'TT Wellingtons Trial ExtraLight';
+    font-size: 16px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: rgb(40, 40, 40); 
+    text-align: center;
+}
+
+li{
+    text-align: center;
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav li p.title{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.dropdown-button{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.dropdown:hover{
+    background-color: rgb(30, 30, 30);
+}
+
+.dropdown-button:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.dropdown-menu{
+    background-color: white;
+    position: absolute;
+    box-shadow: 0 0 2px black;
+    display: none;
+}
+
+.dropdown-menu a{
+    display: block;
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+input{
+    width: 100%;
+    padding: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: white;
+}
+
+input:hover{
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}

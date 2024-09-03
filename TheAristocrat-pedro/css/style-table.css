@@ -1,0 +1,53 @@
+@font-face{
+    font-family: 'TT Wellingtons Trial Thin';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Thin.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial ExtraLight';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ ExtraLight.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Light';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Light.otf) format('opentype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'TT Wellingtons Trial Regular';
+    src: url(fontes/tt_wellingtons/TT\ Wellingtons\ Trial\ Regular.otf) format('opentype');
+    font-style: normal;
+}
+
+.page-title{
+    font-family: 'TT Wellingtons Trial Regular';
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.table-box{
+    padding-top: 40px;
+}
+
+.title{
+    font-family: 'TT Wellingtons Trial Regular';
+}
+
+.sub-title{
+    font-family: 'TT Wellingtons Trial ExtraLight';
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}

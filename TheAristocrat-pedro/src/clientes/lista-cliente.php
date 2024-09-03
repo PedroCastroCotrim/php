@@ -4,6 +4,10 @@
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if(empty($_SESSION['administrador'])){
+        header("Location: ../home.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,48 +15,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style-table.css">
     <title>Listagem de Clientes</title>
 </head>
 <body>
-    <h1>Clientes</h1>
-    
-    <main>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Deletar</th>
-                <th>Editar</th>
-            </tr>
+    <div class="table-box">
+        <p class="page-title">CLIENTES</p>
 
-            <?php foreach ($clientes as $cliente) { ?>
-                    
-            <tr>
-                <td><?= $cliente['id_cliente'] ?></td>
-                <td><?= $cliente['nome'] ?></td>
-                <td><?= $cliente['email'] ?></td>
-                <td><?= $cliente['cpf'] ?></td>
+        <main>
+            <table>
+                <tr>
+                    <th><p class="title">ID</p></th>
+                    <th><p class="title">NOME</p></th>
+                    <th><p class="title">EMAIL</p></th>
+                    <th><p class="title">DELETAR</p></th>
+                    <th><p class="title">EDITAR</p></th>
+                </tr>
 
-                <td>
-                    <form method="post" action="cruds/delete.php">
-                    <input type="hidden" name="id_cliente" value="<?= $cliente['id_cliente']; ?>">
-                    <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');">Deletar</button>
-                    </form>
-                </td>
+                <?php foreach ($clientes as $cliente) { ?>
+                        
+                <tr>
+                    <td><p class="sub-title"><?= $cliente['id_cliente'] ?></p></td>
+                    <td><p class="sub-title"><?= $cliente['nome'] ?></p></td>
+                    <td><p class="sub-title"><?= $cliente['email'] ?></p></td>
 
-                <td>
-                    <a href="edit-cliente.php?id=<?= $cliente['id_cliente'] ?>">Editar</a>
-                </td>
+                    <td>
+                        <form method="post" action="cruds/delete.php">
+                            <input type="hidden" name="id_cliente" value="<?= $cliente['id_cliente']; ?>">
+                            <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
+                        </form>
+                    </td>
 
-            </tr>
-        <?php } ?>
-
-        </table>
-    </main>
-
-    <br><br>
-    <a href="../home.php">Home</a>
+                    <td>
+                        <a href="edit-cliente.php?id=<?= $cliente['id_cliente'] ?>"><p class="sub-title">Editar</p></a>
+                    </td>
+                </tr>
+            <?php } ?>
+            </table>
+        </main>
+    </div>
 </body>
 </html>

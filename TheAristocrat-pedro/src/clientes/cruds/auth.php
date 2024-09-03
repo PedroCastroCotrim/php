@@ -53,7 +53,7 @@
     
                 header("Location: ../../home.php");
 
-            } elseif ($_POST['function'] == 'logout') {
+            } elseif ($_POST['function'] == 'Log out') {
                 session_destroy();
                 header("Location: ../login-cliente.php");
             }

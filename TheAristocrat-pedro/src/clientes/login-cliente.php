@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Log In - Cliente</title>
 </head>
 <body>
     <h1>Log In - Cliente</h1>

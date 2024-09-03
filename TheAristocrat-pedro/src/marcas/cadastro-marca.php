@@ -1,3 +1,12 @@
+<?php
+    include_once '../../redirect.php';
+    redirect();
+
+    if(isset($_SESSION['cliente'])){
+        header("Location: ../home.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

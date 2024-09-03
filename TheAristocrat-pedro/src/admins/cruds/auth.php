@@ -9,7 +9,7 @@
                 $telefone = $_POST['telefone'];
                 $senha = $_POST['senha'];
 
-                $query = "INSERT INTO admin(nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
+                $query = "INSERT INTO administrador(nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
 
                 $password_encrypted = password_hash($senha, PASSWORD_BCRYPT);
 
@@ -32,7 +32,7 @@
                 $telefone = $_POST['telefone'];
                 $senha = $_POST['senha'];
     
-                $query = "SELECT * FROM admin WHERE telefone = :telefone";
+                $query = "SELECT * FROM administrador WHERE telefone = :telefone";
                 $stmt = $pdo->prepare($query);
                 
                 $stmt->execute([
@@ -42,18 +42,18 @@
                 $admin = $stmt -> fetch(PDO::FETCH_OBJ);
     
                 if (is_null($admin)) {
-                    throw new Exception("alert('Usuário não encontrado.')");
+                    throw new Exception("alert('Administrador não encontrado.')");
                 }
     
                 if (!password_verify($senha, $admin->senha)) {
                     throw new Exception("alert('Senha inválida.')");
                 }
     
-                $_SESSION['admin'] = $admin;
+                $_SESSION['administrador'] = $admin;
     
                 header("Location: ../../home.php");
 
-            } elseif ($_POST['function'] == 'logout') {
+            } elseif ($_POST['function'] == 'Log out') {
                 session_destroy();
                 header("Location: ../login-admin.php");
             }

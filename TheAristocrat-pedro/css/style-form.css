@@ -1,0 +1,55 @@
+body{
+    color: white;
+}
+
+.box{
+    position: absolute;
+    background-color: rgb(40, 40, 40);
+    padding: 30px;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.input-box, .input-sex{
+    padding-bottom: 30px;
+}
+
+.input-box{
+    position: relative;
+}
+
+.input-user{
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    border-bottom: 1px white solid;
+    width: 300px;
+}
+
+.label-input{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.submit-box{
+    width: 100%;
+    background-color: dodgerblue;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+}

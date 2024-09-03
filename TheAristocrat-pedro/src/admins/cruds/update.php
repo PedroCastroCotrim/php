@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $telefone = trim($_POST['telefone']);
             $senha = trim($_POST['senha']);
 
-            $query = "UPDATE admin SET nome = :nome, email = :email, telefone = :telefone WHERE id_admin = :id LIMIT 1";
+            $query = "UPDATE administrador SET nome = :nome, email = :email, telefone = :telefone WHERE id_admin = :id LIMIT 1";
 
             $stmt = $pdo->prepare($query);
             $stmt -> bindParam("nome", $nome);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt -> execute();
 
             if (strlen($senha)) {
-                $query = "UPDATE admin SET senha = :senha WHERE id_admin = :id LIMIT 1";
+                $query = "UPDATE administrador SET senha = :senha WHERE id_admin = :id LIMIT 1";
 
                 $encrypted_password = password_hash($senha, PASSWORD_DEFAULT);
 

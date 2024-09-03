@@ -21,7 +21,7 @@
         <input type="text" name="telefone" class="" placeholder="Digite o seu telefone" required><br>
 
         <label for="senha">Senha:</label><br>
-        <input type="password" name="senha" class="" placeholder="Digite o seu senha" required><br>
+        <input type="password" name="senha" class="" placeholder="Digite a sua senha" required><br>
 
         <br>
         <button type="submit">Cadastrar</button>

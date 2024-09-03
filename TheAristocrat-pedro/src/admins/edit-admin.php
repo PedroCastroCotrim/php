@@ -1,3 +1,20 @@
+<?php
+    require_once '../../conexao.php';
+
+    if(empty($_SESSION['administrador'])){
+        header("Location: ../home.php");
+    }
+
+    $query = "SELECT * FROM administrador WHERE id_admin = :id_admin";
+
+    $stmt = $pdo->prepare($query);
+    $result = $stmt->execute([
+        "id_admin" => $_GET['id']
+    ]);
+
+    $admin = $stmt->fetch(PDO::FETCH_OBJ);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,19 +27,19 @@
     
     <form action="cruds/update.php" method="post">
         <input type="hidden" name="function" value="update">
-        <input type="hidden" name="id" value="<?= $_GET['id']?>">
+        <input type="hidden" name="id" value="<?= $admin->id_admin ?>">
 
         <label for="nome">Nome:</label><br>
-        <input type="text" name="nome" class="" placeholder="Digite o seu usuário" required><br>
+        <input type="text" name="nome" class="" placeholder="Digite o seu usuário" value="<?= $admin->nome ?>" required><br>
 
         <label for="email">Email:</label><br>
-        <input type="text" name="email" class="" placeholder="Digite o seu Email" required><br>
+        <input type="text" name="email" class="" placeholder="Digite o seu Email" value="<?= $admin->email ?>" required><br>
         
         <label for="telefone">Telefone:</label><br>
-        <input type="text" name="telefone" class="" placeholder="Digite o seu telefone" required><br>
+        <input type="text" name="telefone" class="" placeholder="Digite o seu telefone" value="<?= $admin->telefone ?>" required><br>
 
         <label for="senha">Senha:</label><br>
-        <input type="password" name="senha" class="" placeholder="Digite o seu senha"><br>
+        <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
 
         <br>
         <button name="alterar" type="submit">Alterar</button>

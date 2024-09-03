@@ -2,7 +2,7 @@
     function redirect(){
         session_start();
 
-        if(is_null($_SESSION['usuario'])){
+        if(!isset($_SESSION['administrador']) && !isset($_SESSION['fornecedor']) && !isset($_SESSION['cliente'])){
             header("Location: clientes/login-cliente.php");
         }
     }

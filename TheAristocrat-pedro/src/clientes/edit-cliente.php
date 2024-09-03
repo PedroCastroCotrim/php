@@ -1,3 +1,20 @@
+<?php
+    require_once '../../conexao.php';
+
+    if(isset($_SESSION['fornecedor'])){
+        header("Location: ../home.php");
+    }
+
+    $query = "SELECT * FROM cliente WHERE id_cliente = :id_cliente";
+
+    $stmt = $pdo->prepare($query);
+    $result = $stmt->execute([
+        "id_cliente" => $_GET['id']
+    ]);
+
+    $cliente = $stmt->fetch(PDO::FETCH_OBJ);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,19 +27,19 @@
     
     <form action="cruds/update.php" method="post">
         <input type="hidden" name="function" value="update">
-        <input type="hidden" name="id" value="<?= $_GET['id']?>">
+        <input type="hidden" name="id" value="<?= $cliente->id_cliente ?>">
 
         <label for="nome">Nome:</label><br>
-        <input type="text" name="nome" class="" placeholder="Digite o seu usuário" required><br>
+        <input type="text" name="nome" class="" placeholder="Digite o seu usuário" value="<?= $cliente->nome ?>" required><br>
 
         <label for="email">Email:</label><br>
-        <input type="text" name="email" class="" placeholder="Digite o seu Email" required><br>
+        <input type="text" name="email" class="" placeholder="Digite o seu Email" value="<?= $cliente->email ?>" required><br>
         
         <label for="cpf">CPF:</label><br>
-        <input type="text" name="cpf" class="" placeholder="Digite o seu CPF" required><br>
+        <input type="text" name="cpf" class="" placeholder="Digite o seu CPF" value="<?= $cliente->cpf ?>" required><br>
 
         <label for="senha">Senha:</label><br>
-        <input type="password" name="senha" class="" placeholder="Digite o seu senha"><br>
+        <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
 
         <br>
         <button name="alterar" type="submit">Alterar</button>

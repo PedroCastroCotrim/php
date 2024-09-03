@@ -1,8 +1,14 @@
 <?php
     require_once '../../conexao.php';
+
     $query = "SELECT id_marca, nome FROM marca";
     $stmt = $pdo->query($query);
+
+    if(isset($_SESSION['cliente'])){
+        header("Location: ../home.php");
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
