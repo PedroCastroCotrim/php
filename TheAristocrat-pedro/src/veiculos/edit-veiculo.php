@@ -1,6 +1,5 @@
 <?php
-    require_once '../../conexao.php';
-    include '../../navbar-session.php';
+    include_once '../../conexao.php';
 
     $query = "SELECT * FROM veiculo WHERE id_veiculo = :id_veiculo";
 
@@ -11,10 +10,16 @@
 
     $veiculo = $query->fetch(PDO::FETCH_OBJ);
 
+    if(empty($_SESSION['administrador']) && empty($_SESSION['fornecedor'])){
+        header("Location: ../home.php");
+    }
+
+    if($veiculo->id_fornecedor !== $_SESSION['fornecedor']->id_fornecedor){
+        header("Location: ../home.php");
+    }
+    
     $query = "SELECT id_marca, nome FROM marca";
     $stmt = $pdo->query($query);
-
-    navbar_session();
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +27,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/style-navbar.css">
         <title>Alterar Veículo</title>
     </head>
 <body>
@@ -46,7 +50,7 @@
             <br>
 
             <label for="ano">Ano:</label><br>
-            <input type="number" name="ano" value="<?= $veiculo->ano ?>" id="ano" placeholder="Ano" required>
+            <input type="number" name="ano" min="1900" max="2025" value="<?= $veiculo->ano ?>" id="ano" placeholder="Ano" required>
             <br>
 
             <label for="cor">Cor:</label><br>
@@ -54,21 +58,18 @@
             <br>
 
             <label for="quilometragem">Quilometragem</label><br>
-            <input type="number" name="quilometragem" value="<?= $veiculo->quilometragem ?>" id="quilometragem" placeholder="quilometragem" required>
+            <input type="number" name="quilometragem" min="0" value="<?= $veiculo->quilometragem ?>" id="quilometragem" placeholder="quilometragem" required>
             <br>
 
             <label for="valor">Valor:</label><br>
-            <input type="number" name="valor" value="<?= $veiculo->valor ?>" id="valor" placeholder="valor" required>
+            <input type="number" name="valor" min="20000" max="2000000" value="<?= $veiculo->valor ?>" id="valor" placeholder="valor" required>
             <br><br>
         
             <button type="submit">Alterar</button>
         </form>
     </main>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>
-
-<?php
-    if(empty($_SESSION['administrador']) && empty($_SESSION['fornecedor'])){
-        header("Location: ../home.php");
-    }
-?>

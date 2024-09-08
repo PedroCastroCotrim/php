@@ -1,8 +1,8 @@
 <?php
-    include_once '../../redirect.php';
+    include_once '../../session.php';
     redirect();
 
-    if(isset($_SESSION['cliente'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
         header("Location: ../home.php");
     }
 ?>

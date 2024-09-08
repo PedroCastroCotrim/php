@@ -1,5 +1,5 @@
 <?php
-    require_once '../../../conexao.php';
+    include_once '../../../conexao.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
@@ -36,13 +36,13 @@
 
                 if ($stmt -> rowCount() > 0) {
                     echo "<script>alert('atualizado com sucesso!')</script>";
-                    header("Location: ../lista-fornecedor.php");
+                    header("Location: ../../../info/info-fornecedor.php");
                 } else {
                     throw new Exception("Erro ao atualizar.");
                 }
             } 
         } catch (Exception $e) {
             echo "<script>alert('{$e->getMessage()}')</script>";
-            header("Location: ../lista-fornecedor.php");
+            header("Location: ../../../info/info-fornecedor.php");
         }
     }

@@ -10,11 +10,16 @@
         try {
             $statement->execute();
             echo "<script>alert('Veículo deletado com sucesso!');</script>";
-            header("Location: ../lista-veiculo.php"); 
+
+            if(isset($_SESSION['fornecedor'])){
+                header("Location: ../../../info/info-fornecedor.php");
+            } else {
+                header("Location: ../lista-veiculo.php");
+            }
         } catch (PDOException $e) {
             echo "Erro ao deletar veículo: " . $e->getMessage();
         }
     } else {
         echo "<script>alert('ID do veículo não informado.');</script>";
-        header("Location: ../../clientes/lista-cliente.php");
+        header("Location: ../../../info/info-fornecedor.php");
     }

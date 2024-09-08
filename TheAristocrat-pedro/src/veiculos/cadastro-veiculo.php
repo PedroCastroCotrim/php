@@ -1,12 +1,13 @@
 <?php
-    require_once '../../conexao.php';
+    include_once '../../conexao.php';
 
     $query = "SELECT id_marca, nome FROM marca";
     $stmt = $pdo->query($query);
 
-    if(isset($_SESSION['cliente'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['administrador'])){
         header("Location: ../home.php");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,8 @@
     <main>
         <form action="cruds/auth.php" method="post">
             <label for="modelo">Modelo:</label><br>
-            <input type="text" name="modelo" id="modelo" placeholder="Modelo" required>
-            <br>
+
+            <input type="text" name="modelo" id="modelo" placeholder="Modelo" required><br>
 
             <label for="marca">Marca:</label><br>
             <select name="marca" id="marca" onchange="document.getElementById('id_marca').value=this.value">
@@ -34,7 +35,7 @@
             <br>
 
             <label for="ano">Ano:</label><br>
-            <input type="number" name="ano" id="ano" placeholder="Ano" required>
+            <input type="number" name="ano" id="ano" min="1900" max="2025" placeholder="Ano" required>
             <br>
 
             <label for="cor">Cor:</label><br>
@@ -42,11 +43,11 @@
             <br>
 
             <label for="quilometragem">Quilometragem:</label><br>
-            <input type="number" name="quilometragem" id="quilometragem" placeholder="Quilometragem" required>
+            <input type="number" name="quilometragem" id="quilometragem" min="0" placeholder="Quilometragem" required>
             <br>
 
             <label for="valor">Valor:</label><br>
-            <input type="number" name="valor" id="valor" placeholder="Valor" required>
+            <input type="number" name="valor" id="valor" min="20000" max="2000000" placeholder="Valor" required>
             <br><br>
 
             <button type="submit">Cadastrar</button>
@@ -54,6 +55,6 @@
     </main>
 
     <br><br>
-    <a href="../home.php">Home</a>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

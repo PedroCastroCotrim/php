@@ -24,7 +24,7 @@
 
     Ainda não é administrador? <a href="cadastro-admin.php">Cadastre-se</a>!
     
-    <br>
-    <a href="../home.php">Home</a>
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

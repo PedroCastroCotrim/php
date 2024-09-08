@@ -10,12 +10,7 @@
         <ul>
         <li class="dropdown"><a href="home.php"><p class="title">HOME</p></a></li>
             
-            <li class="dropdown"><p class="title">CATÁLOGO</p>
-                <div class="dropdown-menu">
-                    <ul><p class="sub-title"><a class="dropdown-button" href="veiculos/lista-veiculo.php">Veiculos</a></p></ul>
-                    <ul><p class="sub-title"><a class="dropdown-button" href="marcas/lista-marca.php">Marcas</a></p></ul>
-                </div>
-            </li>
+            <li class="dropdown"><a href="veiculos/catalogo-veiculo.php"><p class="title">CATÁLOGO</p></a></li>
 
             <li class="dropdown"><a href=""><p class="title">SOBRE</p></a></li>
 
@@ -29,7 +24,10 @@
 
             <li class="dropdown"><p class="title">CONTA</p>
                 <div class="dropdown-menu">
-                    <ul><p class="sub-title"><a class="dropdown-button" href="">Informações</a></p></ul>
+                    <ul><p class="sub-title"><a class="dropdown-button" href="../info/info-cliente.php">Informações</a></p></ul>
+                    
+                    <ul><p class="sub-title"><a class="dropdown-button" href="clientes/edit-cliente.php?id=<?= $_SESSION['cliente']->id_cliente ?>">Editar</a></p></ul>
+
                     <ul>
                         <form action="clientes/cruds/auth.php" method="post">
                             <input class="sub-title" type="submit" name="function" value="Log out">

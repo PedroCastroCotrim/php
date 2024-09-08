@@ -1,11 +1,11 @@
 <?php
-    require_once '../../conexao.php';
+    include_once '../../conexao.php';
     $query = "SELECT * FROM fornecedor ORDER BY id_fornecedor DESC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $fornecedores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if(empty($_SESSION['administrador'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
         header("Location: ../home.php");
     }
 ?>
@@ -56,5 +56,8 @@
             </table>
         </main>
     </div>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

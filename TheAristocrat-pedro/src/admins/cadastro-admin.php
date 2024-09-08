@@ -30,8 +30,8 @@
 
     Já é administrador? Faça <a href="login-admin.php">Log In</a>!
     
-    <br>
-    <a href="../home.php">Home</a>
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 
 </body>
 </html>

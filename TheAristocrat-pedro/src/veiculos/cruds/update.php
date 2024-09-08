@@ -29,13 +29,13 @@
     
                 if ($stmt->rowCount() > 0) {
                     echo "<script>alert('Atualizado com sucesso!')</script>";
-                    header("Location: ../lista-veiculo.php");
+                    header("Location: ../../../info/info-fornecedor.php");
                 } else {
                     throw new Exception("Erro ao atualizar.");
                 }
             } 
         } catch (Exception $e) {
             echo "<script>alert('{$e->getMessage()}')</script>";
-            header("Location: ../lista-veiculo.php");
+            header("Location: ../../../info/info-fornecedor.php");
         }
     }

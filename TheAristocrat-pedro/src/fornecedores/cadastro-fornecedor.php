@@ -15,13 +15,13 @@
         <input type="text" name="nome" class="" placeholder="Digite o seu usuário" required><br>
 
         <label for="email">Email:</label><br>
-        <input type="text" name="email" class="" placeholder="Digite o seu Email" required><br>
+        <input type="email" name="email" class="" placeholder="Digite o seu Email" required><br>
         
         <label for="cpf">CPF:</label><br>
-        <input type="text" name="cpf" class="" placeholder="Digite o seu CPF" required><br>
+        <input type="number" name="cpf" class="" placeholder="Digite o seu CPF" required><br>
         
         <label for="telefone">Telefone:</label><br>
-        <input type="text" name="telefone" class="" placeholder="Digite o seu telefone" required><br>
+        <input type="number" name="telefone" class="" placeholder="Digite o seu telefone" required><br>
         
         <label for="senha">Senha:</label><br>
         <input type="password" name="senha" class="" placeholder="Digite o seu senha" required><br>
@@ -34,6 +34,6 @@
     Já tem uma conta como fonecedor? Faça <a href="login-fornecedor.php">Log In</a>!
 
     <br><br>
-    <a href="../home.php">Home</a>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

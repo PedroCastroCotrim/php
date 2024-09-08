@@ -5,7 +5,7 @@
     $stmt->execute();
     $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if(empty($_SESSION['administrador'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
         header("Location: ../home.php");
     }
 ?>
@@ -28,6 +28,7 @@
                     <th><p class="title">ID</p></th>
                     <th><p class="title">NOME</p></th>
                     <th><p class="title">EMAIL</p></th>
+                    <th><p class="title">CPF</p></th>
                     <th><p class="title">DELETAR</p></th>
                     <th><p class="title">EDITAR</p></th>
                 </tr>
@@ -38,6 +39,7 @@
                     <td><p class="sub-title"><?= $cliente['id_cliente'] ?></p></td>
                     <td><p class="sub-title"><?= $cliente['nome'] ?></p></td>
                     <td><p class="sub-title"><?= $cliente['email'] ?></p></td>
+                    <td><p class="sub-title"><?= $cliente['cpf'] ?></p></td>
 
                     <td>
                         <form method="post" action="cruds/delete.php">
@@ -54,5 +56,8 @@
             </table>
         </main>
     </div>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

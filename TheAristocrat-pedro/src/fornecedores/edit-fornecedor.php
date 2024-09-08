@@ -1,9 +1,5 @@
 <?php
-    require_once '../../conexao.php';
-
-    if(isset($_SESSION['cliente'])){
-        header("Location: ../home.php");
-    }
+    include_once '../../conexao.php';
 
     $query = "SELECT * FROM fornecedor WHERE id_fornecedor = :id_fornecedor";
 
@@ -13,6 +9,14 @@
     ]);
 
     $fornecedor = $stmt->fetch(PDO::FETCH_OBJ);
+
+    if(isset($_SESSION['cliente'])){
+        header("Location: ../home.php");
+    }
+
+    if($fornecedor->id_fornecedor !== $_SESSION['fornecedor']->id_fornecedor){
+        header("Location: ../home.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +37,13 @@
         <input type="text" name="nome" class="" placeholder="Digite o seu usuário" value="<?= $fornecedor->nome ?>" required><br>
 
         <label for="email">Email:</label><br>
-        <input type="text" name="email" class="" placeholder="Digite o seu Email" value="<?= $fornecedor->email ?>" required><br>
+        <input type="email" name="email" class="" placeholder="Digite o seu Email" value="<?= $fornecedor->email ?>" required><br>
         
         <label for="cpf">CPF:</label><br>
-        <input type="text" name="cpf" class="" placeholder="Digite o seu CPF" value="<?= $fornecedor->cpf ?>" required><br>
+        <input type="number" name="cpf" class="" placeholder="Digite o seu CPF" value="<?= $fornecedor->cpf ?>" required><br>
 
         <label for="telefone">Telefone:</label><br>
-        <input type="text" name="telefone" class="" placeholder="Digite o seu telefone" value="<?= $fornecedor->telefone ?>" required><br>
+        <input type="number" name="telefone" class="" placeholder="Digite o seu telefone" value="<?= $fornecedor->telefone ?>" required><br>
 
         <label for="senha">Senha:</label><br>
         <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
@@ -47,5 +51,8 @@
         <br>
         <button name="alterar" type="submit">Alterar</button>
     </form>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

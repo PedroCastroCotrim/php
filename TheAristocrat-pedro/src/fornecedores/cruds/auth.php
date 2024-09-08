@@ -1,5 +1,6 @@
 <?php
-    require_once '../../../conexao.php';
+    include_once '../../../conexao.php';
+    include_once '../../../validation/cpf-validation.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
@@ -14,19 +15,56 @@
 
                 $password_encrypted = password_hash($senha, PASSWORD_BCRYPT);
 
-                $stmt = $pdo -> prepare($query);
-                $stmt -> bindParam(":nome", $nome);
-                $stmt -> bindParam(":email", $email);
-                $stmt -> bindParam(":cpf", $cpf);
-                $stmt -> bindParam(":telefone", $telefone);
-                $stmt -> bindParam(":senha", $password_encrypted);
+                $verify_email = $pdo->prepare("SELECT * FROM fornecedor WHERE email = :email");
+                $verify_email -> bindParam(':email', $email);
+                $verify_email -> execute();
 
-                $stmt -> execute();
+                if($verify_email->rowCount()>0){
+                    echo "<script>alert('Este email já está cadastrado!');</script>";
+                    header("Location: ../cadastro-fornecedor.php");
+                    exit();
+                }
 
-                if ($stmt->rowCount() > 0) {
-                    header("Location: ../login-fornecedor.php");
-                } else {
-                    throw new Exception("Erro ao cadastrar.");
+                $verify_cpf = $pdo->prepare("SELECT * FROM fornecedor WHERE cpf = :cpf");
+                $verify_cpf -> bindParam(':cpf', $cpf);
+                $verify_cpf -> execute();
+                
+
+                if($verify_cpf->rowCount()>0){
+                    echo "<script>alert('Este cpf já está cadastrado!');</script>";
+                    header("Location: ../cadastro-fornecedor.php");
+                    exit();
+                }
+
+                $verify_telefone = $pdo->prepare("SELECT * FROM fornecedor WHERE telefone = :telefone");
+                $verify_telefone -> bindParam(':telefone', $telefone);
+                $verify_telefone -> execute();
+                
+
+                if($verify_telefone->rowCount()>0){
+                    echo "<script>alert('Este telefone já está cadastrado!');</script>";
+                    header("Location: ../cadastro-fornecedor.php");
+                    exit();
+                }
+
+                if(verify_cpf($cpf)!==true || strlen($cpf)!==11){
+                    echo "<script>alert('Cpf inválido!');</script>";
+                    header("Location: ../cadastro-fornecedor.php");
+                } else{
+                    $stmt = $pdo -> prepare($query);
+                    $stmt -> bindParam(":nome", $nome);
+                    $stmt -> bindParam(":email", $email);
+                    $stmt -> bindParam(":cpf", $cpf);
+                    $stmt -> bindParam(":telefone", $telefone);
+                    $stmt -> bindParam(":senha", $password_encrypted);
+
+                    $stmt -> execute();
+
+                    if ($stmt->rowCount() > 0) {
+                        header("Location: ../login-fornecedor.php");
+                    } else {
+                        throw new Exception("Erro ao cadastrar.");
+                    }
                 }
 
             } elseif ($_POST['function'] == 'login') {

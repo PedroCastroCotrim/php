@@ -12,7 +12,7 @@
             $stmt->execute();
 
             echo "<script>alert('Fornecedor deletado com sucesso!');</script>";
-            header("Location: ../lista-fornecedor.php"); 
+            header("Location: ../../home.php"); 
             exit();
 
         } catch (PDOException $e) {
@@ -21,5 +21,5 @@
 
     } else {
         echo "<script>alert('ID do Fornecedor não informado.');</script>";
-        header("Location: ../lista-fornecedor.php");
+        header("Location: ../../home.php");
     }

@@ -1,39 +1,50 @@
 <?php
-    include_once '../../conexao.php';
+  include_once '../conexao.php';
+  
+  $query_veiculo = "SELECT * FROM veiculo WHERE id_fornecedor = :id_fornecedor ORDER BY id_veiculo DESC";
+  $stmt = $pdo->prepare($query_veiculo);
+  $stmt->execute([
+    'id_fornecedor' => $_SESSION['fornecedor']->id_fornecedor
+  ]);
 
-    $query = "SELECT * FROM veiculo ORDER BY id_veiculo DESC";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
-        header("Location: ../home.php");
-    }
+  $query_fornecedor = "SELECT * FROM fornecedor WHERE id_fornecedor = :id_fornecedor";
+  $stmt = $pdo->prepare($query_fornecedor);
+  $stmt->execute([
+    'id_fornecedor' => $_SESSION['fornecedor']->id_fornecedor
+  ]);
 
-    redirect();
+  $fornecedores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  if(empty($_SESSION['fornecedor'])){
+      header("Location: ../src/home.php");
+  }
+
+  foreach($fornecedores as $fornecedor);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/style-table.css">
-    <title>Veículos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style-table.css">
+
+  <title>Informações - Fornecedor</title>
 </head>
 
 <body>
-    <style>
-        .button{
-            background-color: white;
-            border: none;
-        }
-        
-    </style>
+  <p class="page-title">INFORMAÇÕES</p>
 
-    <div class="box-table">
-        <p class="page-title">VEÍCULOS</p>
+  <p class="sub-title"><?= $fornecedor['id_fornecedor'] ?></p>
+  <p class="sub-title"><?= $fornecedor['nome'] ?></p>
+  <p class="sub-title"><?= $fornecedor['email'] ?></p>
+  <p class="sub-title"><?= $fornecedor['cpf'] ?></p>
+  <p class="sub-title"><?= $fornecedor['telefone'] ?></p>
+
+  <div class="box-table">
+        <p class="page-title">MEUS VEÍCULOS</p>
 
         <main>
             <table>
@@ -41,12 +52,12 @@
                     <th><p class="title">ID</p></th>
                     <th><p class="title">MODELO</p></th>
                     <th><p class="title">MARCA</p></th>
-                    <th><p class="title">FORNECEDOR</p></th>
                     <th><p class="title">ANO</p></th>
                     <th><p class="title">COR</p></th>
                     <th><p class="title">QUILOMETRAGEM</p></th>
                     <th><p class="title">VALOR</p></th>
                     <th><p class="title">DELETAR</p></th>
+                    <th><p class="title">EDITAR</p></th>
                 </tr>
 
                 <?php foreach ($veiculos as $veiculo) { ?>
@@ -70,31 +81,18 @@
                             ?>
                         </p>
                     </td>
-                    <td><p class="sub-title">
-                            <?php
-                                $query_fornecedor = "SELECT nome FROM fornecedor WHERE id_fornecedor = :id_fornecedor";
-                                $stmt_fornecedor = $pdo->prepare($query_fornecedor);
-                                $stmt_fornecedor->bindParam(':id_fornecedor', $veiculo['id_fornecedor']);
-
-                                try {
-                                    $stmt_fornecedor->execute();
-                                    $fornecedor = $stmt_fornecedor->fetch(PDO::FETCH_ASSOC);
-                                    echo $fornecedor['nome'] ?? 'fornecedor não encontrada'; // Exibe "fornecedor não encontrada" se não houver resultado
-                                } catch (PDOException $e) {
-                                    echo "Erro ao buscar fornecedor: " . $e->getMessage();
-                                }
-                            ?>
-                        </p>
-                    </td>
                     <td><p class="sub-title"><?= $veiculo['ano'] ?></p></td>
                     <td><p class="sub-title"><?= $veiculo['cor'] ?></p></td>
                     <td><p class="sub-title"><?= $veiculo['quilometragem'] . " KM" ?></p></td>
                     <td><p class="sub-title"><?= $veiculo['valor'] . " R$" ?></p></td>
                     <td>
-                        <form method="post" action="cruds/delete.php">
+                        <form method="post" action="../src/veiculos/cruds/delete.php">
                             <input type="hidden" name="id" value="<?= $veiculo['id_veiculo']; ?>">
-                            <button type="submit" class="" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
+                            <button type="submit" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
                         </form>
+                    </td>
+                    <td>
+                        <a href="../src/veiculos/edit-veiculo.php?id=<?= $veiculo['id_veiculo'] ?>"><p class="sub-title">Editar</p></a>
                     </td>
                 </tr>
             <?php } ?>
@@ -103,6 +101,6 @@
     </div>
 
     <br><br>
-    <a href="../home.php"><p class="sub-title">HOME</p></a>
+    <a href="../src/home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

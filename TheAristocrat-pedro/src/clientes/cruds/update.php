@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt -> bindParam("nome", $nome);
             $stmt -> bindParam("cpf", $cpf);
             $stmt -> bindParam("email", $email);
-            $stmt -> bindParam("id", $id);
             
             $stmt -> execute();
 
@@ -28,19 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt = $pdo->prepare($query);
                 $stmt -> bindParam("senha", $encrypted_password);
                 $stmt -> bindParam("id", $id);
-                
+
                 $stmt -> execute();
             }
 
             if ($stmt -> rowCount() > 0) {
                 echo "<script>alert('atualizado com sucesso!')</script>";
-                header("Location: ../lista-cliente.php");
+                header("Location: ../../../info/info-fornecedor.php");
             } else {
                 throw new Exception("Erro ao atualizar.");
             }
         } 
     } catch (Exception $e) {
         echo "<script>alert('{$e->getMessage()}')</script>";
-        header("Location: ../lista-cliente.php");
+        header("Location: ../../../info/info-fornecedor.php");
     }
 }

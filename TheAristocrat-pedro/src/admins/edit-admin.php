@@ -1,10 +1,6 @@
 <?php
     require_once '../../conexao.php';
 
-    if(empty($_SESSION['administrador'])){
-        header("Location: ../home.php");
-    }
-
     $query = "SELECT * FROM administrador WHERE id_admin = :id_admin";
 
     $stmt = $pdo->prepare($query);
@@ -13,6 +9,10 @@
     ]);
 
     $admin = $stmt->fetch(PDO::FETCH_OBJ);
+
+    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
+        header("Location: ../home.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,5 +44,8 @@
         <br>
         <button name="alterar" type="submit">Alterar</button>
     </form>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
-    require_once '../../../conexao.php';
+    include_once '../../../conexao.php';
+    include_once '../../../validation/cpf-validation.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
@@ -9,22 +10,48 @@
                 $cpf = $_POST['cpf'];
                 $senha = $_POST['senha'];
 
-                $query = "INSERT INTO cliente(nome, email, cpf, senha) VALUES (:nome, :email, :cpf, :senha)";
-
                 $password_encrypted = password_hash($senha, PASSWORD_BCRYPT);
 
-                $stmt = $pdo -> prepare($query);
-                $stmt -> bindParam(":nome", $nome);
-                $stmt -> bindParam(":email", $email);
-                $stmt -> bindParam(":cpf", $cpf);
-                $stmt -> bindParam(":senha", $password_encrypted);
+                $query = "INSERT INTO cliente(nome, email, cpf, senha) VALUES (:nome, :email, :cpf, :senha)";
 
-                $stmt -> execute();
+                $verify_email = $pdo->prepare("SELECT * FROM cliente WHERE email = :email");
+                $verify_email -> bindParam(':email', $email);
+                $verify_email -> execute();
 
-                if ($stmt->rowCount() > 0) {
-                    header("Location: ../login-cliente.php");
-                } else {
-                    throw new Exception("Erro ao cadastrar.");
+                if($verify_email->rowCount()>0){
+                    echo "<script>alert('Este email já está cadastrado!');</script>";
+                    header("Location: ../cadastro-cliente.php");
+                    exit();
+                }
+
+                $verify_cpf = $pdo->prepare("SELECT * FROM cliente WHERE cpf = :cpf");
+                $verify_cpf -> bindParam(':cpf', $cpf);
+                $verify_cpf -> execute();
+                
+
+                if($verify_cpf->rowCount()>0){
+                    echo "<script>alert('Este cpf já está cadastrado!');</script>";
+                    header("Location: ../cadastro-cliente.php");
+                    exit();
+                }
+
+                if(verify_cpf($cpf)!==true){
+                    header("Location: ../cadastro-cliente.php");
+                } else{
+                    
+                    $stmt = $pdo -> prepare($query);
+                    $stmt -> bindParam(":nome", $nome);
+                    $stmt -> bindParam(":email", $email);
+                    $stmt -> bindParam(":cpf", $cpf);
+                    $stmt -> bindParam(":senha", $password_encrypted);
+
+                    $stmt -> execute();
+
+                    if ($stmt->rowCount() > 0) {
+                        header("Location: ../login-cliente.php");
+                    } else {
+                        throw new Exception("Erro ao cadastrar.");
+                    }
                 }
 
             } elseif ($_POST['function'] == 'login') {

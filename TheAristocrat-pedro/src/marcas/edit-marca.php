@@ -1,10 +1,6 @@
 <?php
     require_once '../../conexao.php';
 
-    if(isset($_SESSION['cliente'])){
-        header("Location: ../home.php");
-    }
-
     $query = "SELECT * FROM marca WHERE id_marca = :id_marca";
 
     $stmt = $pdo->prepare($query);
@@ -13,6 +9,10 @@
     ]);
 
     $marca = $stmt->fetch(PDO::FETCH_OBJ);
+
+    if(isset($_SESSION['cliente']) || isset($_SESSION['fornecedor'])){
+        header("Location: ../home.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +35,9 @@
 
         <button type="submit">Alterar</button>
     </form>
+
+    <br><br>
+    <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>
 
