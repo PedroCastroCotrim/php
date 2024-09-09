@@ -10,8 +10,9 @@
 
     $fornecedor = $stmt->fetch(PDO::FETCH_OBJ);
 
-    if(isset($_SESSION['cliente'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['administrador'])){
         header("Location: ../home.php");
+        echo "<script>alert('Homens')</script>";
     }
 
     if($fornecedor->id_fornecedor !== $_SESSION['fornecedor']->id_fornecedor){
@@ -49,7 +50,7 @@
         <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
 
         <br>
-        <button name="alterar" type="submit">Alterar</button>
+        <button name="alterar" type="submit" onclick="return confirm('Tem certeza que deseja alterar?');">Alterar</button>
     </form>
 
     <br><br>

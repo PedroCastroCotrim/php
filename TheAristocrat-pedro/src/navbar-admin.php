@@ -12,16 +12,9 @@
         <ul>
             <li class="dropdown"><a href="home.php"><p class="title">HOME</p></a></li>
 
-            <li class="dropdown"><a href="veiculos/catalogo-veiculo.php"><p class="title">CATÁLOGO</p></a></li>
-
             <li class="dropdown"><a href=""><p class="title">SOBRE</p></a></li>
 
-            <li class="dropdown"><p class="title">REGISTRAR</p>
-                <div class="dropdown-menu">
-                    <ul><p class="sub-title"><a class="dropdown-button" href="veiculos/cadastro-veiculo.php">Veículos</a></p></ul>
-                    <ul><p class="sub-title"><a class="dropdown-button" href="marcas/cadastro-marca.php">Marcas</a></p></ul>
-                </div>
-            </li>
+            <li class="dropdown"><a href="marcas/cadastro-marca.php"><p class="title">REGISTRAR MARCA</p></a></li>
 
             <li class="dropdown"><p class="title">ADMINISTRAÇÃO</p>
                 <div class="dropdown-menu">

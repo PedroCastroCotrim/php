@@ -30,7 +30,6 @@
                     <th><p class="title">EMAIL</p></th>
                     <th><p class="title">CPF</p></th>
                     <th><p class="title">DELETAR</p></th>
-                    <th><p class="title">EDITAR</p></th>
                 </tr>
 
                 <?php foreach ($clientes as $cliente) { ?>
@@ -46,10 +45,6 @@
                             <input type="hidden" name="id_cliente" value="<?= $cliente['id_cliente']; ?>">
                             <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
                         </form>
-                    </td>
-
-                    <td>
-                        <a href="edit-cliente.php?id=<?= $cliente['id_cliente'] ?>"><p class="sub-title">Editar</p></a>
                     </td>
                 </tr>
             <?php } ?>

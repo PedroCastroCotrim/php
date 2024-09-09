@@ -14,8 +14,6 @@
         <ul>
             <li class="dropdown"><a href="home.php"><p class="title">HOME</p></a></li>
 
-            <li class="dropdown"><a href="veiculos/catalogo-veiculo.php"><p class="title">CATÁLOGO</p></a></li>
-
             <li class="dropdown"><a href=""><p class="title">SOBRE</p></a></li>
 
             <li class="dropdown"><a href="veiculos/cadastro-veiculo.php"><p class="title">REGISTRAR VEÍCULO</p></a></li>

@@ -30,7 +30,6 @@
                     <th><p class="title">EMAIL</p></th>
                     <th><p class="title">TELEFONE</p></th>
                     <th><p class="title">DELETAR</p></th>
-                    <th><p class="title">EDITAR</p></th>
                 </tr>
 
                 <?php foreach ($fornecedores as $fornecedor) { ?>
@@ -46,10 +45,6 @@
                             <input type="hidden" name="id_fornecedor" value="<?= $fornecedor['id_fornecedor']; ?>">
                             <button type="submit" class="deletar" onclick="return confirm('Tem certeza que deseja deletar?');"><p class="sub-title">Deletar</p></button>
                         </form>
-                    </td>
-
-                    <td>
-                        <a href="edit-fornecedor.php?id=<?= $fornecedor['id_fornecedor'] ?>"><p class="sub-title">Editar</p></a>
                     </td>
                 </tr>
             <?php } ?>

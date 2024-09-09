@@ -16,7 +16,7 @@ require_once '../../../conexao.php';
                 $stmt -> execute();
 
                 if ($stmt -> rowCount() > 0) {
-                    echo "<script>alert('Atualizado com sucesso!')</script>";
+                    echo "<script> alert('Atualizado com sucesso!'); </script>";
                     header("Location: ../lista-marca.php");
                 } else {
                     throw new Exception("Erro ao atualizar.");

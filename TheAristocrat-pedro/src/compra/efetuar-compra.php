@@ -9,7 +9,7 @@
 
     $veiculo = $stmt_veiculo->fetch(PDO::FETCH_OBJ);
 
-    if(isset($_SESSION['administrador'])){
+    if(isset($_SESSION['administrador']) || isset($_SESSION['fornecedor'])){
         header("Location: ../home.php");
     }
 ?>

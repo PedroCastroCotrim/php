@@ -10,7 +10,7 @@
 
     $cliente = $stmt->fetch(PDO::FETCH_OBJ);
 
-    if(isset($_SESSION['fornecedor'])){
+    if(isset($_SESSION['fornecedor']) || isset($_SESSION['administrador'])){
         header("Location: ../home.php");
     }
 
@@ -24,7 +24,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Cadastro - Cliente</title>
+    <title>Alterar Cliente</title>
 </head>
 <body>
     <h1>Editar - Cliente</h1>
@@ -46,7 +46,7 @@
         <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
 
         <br>
-        <button name="alterar" type="submit">Alterar</button>
+        <button name="alterar" type="submit" onclick="return confirm('Tem certeza que deseja alterar?');">Alterar</button>
     </form>
 
     <br><br>

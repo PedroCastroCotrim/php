@@ -10,7 +10,7 @@
 
     $veiculo = $query->fetch(PDO::FETCH_OBJ);
 
-    if(empty($_SESSION['administrador']) && empty($_SESSION['fornecedor'])){
+    if(isset($_SESSION['cliente']) || isset($_SESSION['administrador'])){
         header("Location: ../home.php");
     }
 
@@ -65,7 +65,7 @@
             <input type="number" name="valor" min="20000" max="2000000" value="<?= $veiculo->valor ?>" id="valor" placeholder="valor" required>
             <br><br>
         
-            <button type="submit">Alterar</button>
+            <button type="submit" onclick="return confirm('Tem certeza que deseja alterar?');">Alterar</button>
         </form>
     </main>
 

@@ -80,7 +80,7 @@
                     <td><p class="sub-title"><?= $compra['metodo_pagamento'] ?></p></td>
                     <td><p class="sub-title"><?= $compra['valor_total'] . " R$" ?></p></td>
                     <td>
-                        <a href="../src/compras/edit-compra.php?id=<?= $compra['id_compra'] ?>"><p class="sub-title">Editar</p></a>
+                        <a href="../src/compra/edit-compra.php?id=<?= $compra['id_compra'] ?>" ><p class="sub-title">Editar</p></a>
                     </td>
                 </tr>
             <?php } ?>

@@ -5,6 +5,10 @@
     $stmt_veiculo = $pdo->prepare($query_veiculo);
     $stmt_veiculo->execute();
     $veiculos = $stmt_veiculo->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_SESSION['fornecedor']) || isset($_SESSION['administrador'])){
+        header("Location: ../home.php");
+    }
 ?>
 
 <!DOCTYPE html>

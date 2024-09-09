@@ -42,7 +42,7 @@
         <input type="password" name="senha" class="" placeholder="Digite a sua senha"><br>
 
         <br>
-        <button name="alterar" type="submit">Alterar</button>
+        <button name="alterar" type="submit" onclick="return confirm('Tem certeza que deseja alterar?');">Alterar</button>
     </form>
 
     <br><br>

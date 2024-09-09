@@ -33,16 +33,10 @@
         <input type="text" name="nome" class="" placeholder="Digite a marca" value="<?= $marca->nome ?>" required><br>
         <br>
 
-        <button type="submit">Alterar</button>
+        <button type="submit" onclick="return confirm('Tem certeza que deseja alterar?');">Alterar</button>
     </form>
 
     <br><br>
     <a href="../home.php"><p class="sub-title">HOME</p></a>
 </body>
 </html>
-
-<?php
-    if(empty($_SESSION['administrador']) && empty($_SESSION['fornecedor'])){
-        header("Location: ../home.php");
-    }
-?>
