@@ -1,0 +1,52 @@
+:root {
+    --bg-color: #000000;
+    --bg-color-second: #191815;
+    --text-color: #e2e2e2;
+    --primary-color: #0b304b;
+    --primary-color-mod: #175079;
+    --primary-color-link: #1b78bb;
+    --shadow-color-dark: #00000040;
+    --shadow-color-medium: #0000001f;
+    --shadow-color-light: #00000017;
+    --red-color: #ff0000 ;
+    --font-title: "Oswald", sans-serif;
+    --font-text-2: "Lato", sans-serif;
+    --font-text-3: "Roboto", sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html{
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    cursor: default;
+  }
+  
+  .title,
+  .font-text-second,
+  .font-text-terciary {
+    color: var(--text-color);
+  }
+  
+  .title {
+    font-family: var(--font-title);
+  }
+  
+  .font-text-terciary {
+    font-family: var(--font-text-3);
+  }
+  
+  .font-text-second {
+    font-family: var(--font-text-2);
+  }
+  
+  a {
+    all: inherit;
+  }
+  

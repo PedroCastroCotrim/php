@@ -1,0 +1,119 @@
+nav .title {
+    color: var(--text-color);
+    font-size: 4dvh;
+    font-family: var(--font-title);
+    text-shadow: var(--shadow-color-dark) 0 1.5dvh 1.5dvh,
+}
+
+nav {
+    backdrop-filter: blur(1dvh);
+    -webkit-backdrop-filter: blur(1dvh);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-text-2);
+    padding: 1dvh;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--shadow-color-dark) 0 5.4dvh 5.5dvh,
+        var(--shadow-color-medium) 0 -1.2dvh 3dvh,
+        var(--shadow-color-medium) 0 0.4dvh 0.6dvh,
+        var(--shadow-color-dark) 0 1.2dvh 1.3dvh,
+        var(--shadow-color-light) 0 -0.3dvh 0.5dvh;
+    font-size: 4.5dvh;
+    z-index: 2;
+}
+
+nav img {
+    width: 8dvh;
+    padding-left: 6dvh;
+    padding-right: 11dvh;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+nav img:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4.5dvh;
+}
+
+nav li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 1.5dvh;
+}
+
+.dropdown {
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+.dropdown:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-button {
+    display: inline-block;
+    color: var(--font-text-2);
+    cursor: pointer;
+    font-size: 3.2dvh;
+    text-decoration: none;
+    padding: 1dvh;
+    transition: background 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    margin-top: 4dvh;
+    backdrop-filter: blur(1dvh);
+    -webkit-backdrop-filter: blur(1dvh);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1dvh;
+    z-index: 1000;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    transform: scale(1);
+}
+
+.dropdown-menu ul {
+    padding: 0;
+    margin: 0;
+    border-bottom: .3dvh solid var(--text-color);
+    transition: border 0.3s ease;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 1dvh;
+    transition: color 0.3s ease;
+}
+
+input.sub-title {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1dvh;
+}

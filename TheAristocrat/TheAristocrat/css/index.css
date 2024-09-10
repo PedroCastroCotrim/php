@@ -1,0 +1,520 @@
+/* Parte referente ao inicio do site */
+.image {
+  height: 50dvh;
+  background-image: url(imgs/png/posche.png);
+  background-size: cover;
+}
+
+.titless {
+  z-index: 1;
+  position: relative;
+  top: -10dvh;
+  margin-left: 5.5dvh;
+}
+
+.titless h1 {
+  font-size: 7dvh;
+}
+
+.titless .font-text-second {
+  margin-top: 0.5dvh;
+  font-size: 4.3dvh;
+}
+
+button {
+  all: inherit;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 4.5dvh;
+  padding: 3.5dvh;
+  text-align: center;
+  margin: -3dvh 0 0 5.5dvh;
+  transition: all 0.5s;
+}
+
+button:hover {
+  transition: all 0.5s;
+  background: var(--primary-color-mod);
+  cursor: pointer;
+}
+
+/* Cessão de css da primeira parte mostrando a empresa parte região dos cards */
+main {
+  height: 135dvh;
+  display: flex;
+  align-items: center;
+  gap: 1dvh;
+}
+
+main h1 {
+  font-size: 6dvh;
+}
+
+main .image {
+  height: 80dvh;
+  width: 70dvh;
+  background-image: url(imgs/png/carro1.png);
+  margin-left: 18dvh;
+  margin-top: -15dvh;
+}
+
+.line {
+  height: 0.5dvh;
+  width: 35dvh;
+  margin-top: 0.5dvh;
+  background-color: var(--text-color);
+}
+
+main .text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6dvh;
+  gap: 6dvh;
+  flex-wrap: wrap;
+}
+
+.text pre {
+  font-size: 3.6dvh;
+  margin-left: 1.5dvh;
+}
+
+main .text p {
+  font-size: 3.5dvh;
+  opacity: 0.8;
+  color: var(--text-color);
+  margin-top: -2dvh;
+}
+
+/* Cessão de css da segunda parte região dos cards */
+.main-two {
+  height: 145dvh;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10dvh;
+}
+
+.main-two .title {
+  font-size: 6.2dvh;
+}
+
+.carrosel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2dvh 1.5dvh;
+}
+
+.carrosel h1 {
+  font-size: 6dvh;
+  margin-left: 1dvh;
+  margin-bottom: 1dvh;
+  display: none;
+  animation: 5ms;
+}
+
+.card,
+.card-bg {
+  height: 36dvh;
+  width: 60dvh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-bg:hover {
+  transition: all 0.5s;
+  opacity: 1;
+}
+
+.card-bg:hover h1 {
+  transition: all 0.5s;
+  display: block;
+  opacity: 1;
+  animation: 5ms;
+  text-decoration: overline;
+  color: var(--bg-color);
+  text-decoration-color: var(--primary-color-mod);
+}
+
+.card-bg {
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.img-card1 {
+  background-image: url(imgs/jpg/image3.jpg);
+}
+
+.img-card2 {
+  background-image: url(imgs/jpg/image4.jpg);
+}
+
+.img-card3 {
+  background-image: url(imgs/jpg/image6.jpg);
+}
+
+.img-card4 {
+  background-image: url(imgs/jpg/image10.jpg);
+}
+
+.img-card5 {
+  background-image: url(imgs/jpg/image5.jpg);
+}
+
+.img-card6 {
+  background-image: url(imgs/jpg/image9.jpg);
+}
+
+li {
+  all: inherit;
+}
+
+.main-two p {
+  font-size: 3.5dvh;
+  margin-top: 2dvh;
+}
+
+/* Parte referente a terceira parte do site */
+.main-three {
+  height: 32dvh;
+  background: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 3dvh;
+}
+
+.main-three p {
+  margin-top: 8.5dvh;
+  color: var(--bg-color-second);
+  font-size: 2.8dvh;
+}
+
+.main-three a {
+  all: inherit;
+  background: var(--bg-color);
+  padding: 5dvh;
+  font-size: 3.5dvh;
+  z-index: 1;
+  height: 3dvh;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.5s;
+}
+
+.main-three a:hover {
+  transition: all 0.5s;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+
+.subMain-three {
+  display: flex;
+  flex-direction: row;
+  gap: 12.5dvh;
+  height: 110dvh;
+  align-items: center;
+  justify-content: center;
+  background: var(--text-color);
+  z-index: 1;
+  padding-bottom: 5dvh;
+}
+
+.subMain-three .imgs {
+  height: 80dvh;
+  width: 70dvh;
+  background-image: url(imgs/jpg/caiocastro.jpg);
+  background-size: cover;
+  margin-left: 8dvh;
+}
+
+.subMain-three .text h1,
+.subMain-three .text p {
+  color: var(--bg-color);
+}
+
+.subMain-three .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
+  gap: 3dvh;
+}
+
+.subMain-three .text ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3.7dvh;
+  margin-left: 1.5dvh;
+}
+
+.subMain-three .text ul p {
+  margin-left: 2.5dvh;
+  font-size: 2.5dvh;
+}
+
+.front p {
+  font-size: 2.5dvh;
+}
+
+/* parte referente a quarta parte do site */
+.main-four {
+  height: 110dvh;
+  display: grid;
+  padding-top: 18dvh;
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+  padding-bottom: 18dvh;
+}
+
+.main-four .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6dvh;
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 5dvh;
+  opacity: .8;
+}
+
+.mainSub {
+  height: 30dvh;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5dvh 2.5dvh;
+}
+
+.mainSub .logos img {
+  height: 22dvh;
+  background-size: cover;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+.mainSub .logos img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.invert img {
+  filter: invert(1);
+}
+
+/* Seção referente a quinta parte do site */
+
+.main-five {
+  height: 110dvh;
+  background-image: url(imgs/jpg/hondaInter.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main-five .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22.8dvh;
+  font-size: 3.5dvh;
+  text-align: center;
+}
+
+.main-five .text h1 {
+  font-size: 12dvh
+}
+
+.main-five .text p {
+  font-size: 3.7dvh
+}
+
+.main-five .text button {
+  background: none;
+  border: .5dvh solid var(--text-color);
+  backdrop-filter: blur(.5dvh);
+  -webkit-backdrop-filter: blur(.5dvh);
+  transition: all ease 0.5s;
+}
+
+.main-five .text button:hover {
+  transform: scale(1.05);
+  backdrop-filter: blur(.8dvh);
+  -webkit-backdrop-filter: blur(.8dvh);
+}
+
+/* Sexta parte do site */
+
+.main-six {
+  height: 110dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5dvh;
+  text-align: center;
+  background: var(--bg-color);
+}
+
+.main-six .line {
+  width: 65dvh;
+  padding-bottom: -3dvh;
+  margin: -8dvh auto auto auto;
+}
+
+.main-six .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9dvh;
+}
+
+.main-six .text p {
+  font-size: 6.2dvh;
+  transition: all ease 0.5s;
+}
+
+.main-six .text p:hover {
+  transform: scale(1.1);
+}
+
+.main-six .text h1 {
+  font-size: 14.5dvh;
+}
+
+/* Setima parte do site */
+
+.main-seven {
+  height: 110dvh;
+  background: url(imgs/jpg/bgferrari.jpeg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9.5dvh;
+}
+
+.main-seven .text1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 7dvh;
+}
+
+.main-seven .text2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.boxs {
+  padding: 2dvh;
+  backdrop-filter: blur(.6dvh);
+  -webkit-backdrop-filter: blur(.6dvh);
+  border-radius: 5%;
+  opacity: .5;
+  transition: all ease 0.5s;
+}
+
+.boxs:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.boxs p {
+  text-align: center;
+  font-size: 3dvh;
+}
+
+/* Footer  do site*/
+
+footer {
+  height: 100dvh;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  gap: 4dvh;
+}
+
+footer .text {
+  display: flex;
+  flex-direction: column;
+  gap: 6.5dvh;
+}
+
+footer .text .line {
+  padding-bottom: -3dvh;
+  margin-top: -2.5dvh;
+}
+
+footer .text p {
+  font-size: 3.8dvh
+}
+
+footer .text-init p {
+  font-size: 3.5dvh
+}
+
+footer .text h1 {
+  font-size: 5.8dvh
+}
+
+footer .text-init {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5dvh;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 7dvh;
+}
+
+.links button {
+  font-size: 4.5dvh;
+  padding: 3.5dvh;
+}
+
+#btn1 {
+  background: var(--primary-color);
+  transition: all ease 0.5s;
+}
+
+#btn2 {
+  background: var(--primary-color);
+  transition: all ease 0.5s;
+}
+
+#btn1:hover,
+#btn2:hover {
+  transform: scale(1.1);
+  background: var(--primary-color-mod)
+}
+
+p.link-registro{
+  color: #fff;
+}
+
+.link-registro a{
+  color: #175079;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");

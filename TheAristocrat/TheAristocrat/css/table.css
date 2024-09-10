@@ -1,0 +1,59 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+}
+
+table {
+    border-collapse: collapse;
+    width: 180dvh;
+    margin-top: 5dvh;
+    margin-bottom: 5dvh;
+    border: .2dvh solid var(--text-color);
+    text-align: center;
+}
+
+th {
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-family: var(--font-text-2);
+    font-size: 2.6dvh;
+    text-align: center;
+    padding: 1dvh;
+}
+
+td {
+    border: .3dvh solid var(--text-color);
+    padding: .5dvh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 7dvh;
+}
+
+.deletar,
+td a {
+    all: inherit;
+    font-family: var(--font-text-2);
+    background: var(--primary-color);
+    padding: .5dvh 2dvh;
+    margin-left: .5dvh;
+    font-size: 2.5dvh;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: .5dvh;
+    border: none;
+}
+
+.deletar {
+    background: var(--red-color);
+}
+
+.deletar:hover,
+td a:hover {
+    background: none;
+    transform: scale(1.05);
+}
